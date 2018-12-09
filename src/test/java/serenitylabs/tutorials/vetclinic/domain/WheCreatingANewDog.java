@@ -12,6 +12,7 @@ import serenitylabs.tutorials.vetclinic.domain.builders.builder4.DogBuilder4;
 import serenitylabs.tutorials.vetclinic.domain.builders.builder4.DogByBuilder4;
 import serenitylabs.tutorials.vetclinic.domain.builders.builder5.DogBuilder5;
 import serenitylabs.tutorials.vetclinic.domain.builders.builder5.DogByBuilder5;
+import serenitylabs.tutorials.vetclinic.domain.version1.DogBreeder;
 
 import java.time.LocalDateTime;
 
@@ -118,6 +119,61 @@ public class WheCreatingANewDog {
                 .bornOn(birthDay);
 
         Assert.assertEquals("Fido", fido.getName());
+        Assert.assertEquals("Poodle", fido.getBreed());
+        Assert.assertEquals("pizza", fido.getFavouriteFood());
+        Assert.assertEquals(birthDay, fido.getDateOfBirth());
+        Assert.assertEquals("black", fido.getColour());
+    }
+
+    @Test
+    public void it_should_have_a_dog_using_builder_pattern_6_callind_directly_the_builder() {
+        LocalDateTime birthDay = LocalDateTime.now();
+
+        DogByBuilder5 fido = DogBreeder.aDog()
+                .called("Fido")
+                .ofBreed("Poodle")
+                .ofColour("black")
+                .withFavouriteFood("pizza")
+                .bornOn(birthDay);
+
+        Assert.assertEquals("Fido", fido.getName());
+        Assert.assertEquals("Poodle", fido.getBreed());
+        Assert.assertEquals("pizza", fido.getFavouriteFood());
+        Assert.assertEquals(birthDay, fido.getDateOfBirth());
+        Assert.assertEquals("black", fido.getColour());
+    }
+
+    @Test
+    public void it_should_have_a_dog_using_builder_pattern_7_prototyping() {
+        LocalDateTime birthDay = LocalDateTime.now();
+
+        DogByBuilder5 fido = serenitylabs.tutorials.vetclinic.domain.version2.DogBreeder
+                .aLargeDog()
+                .called("Fido")
+                .ofBreed("Poodle")
+                .ofColour("black")
+                .withFavouriteFood("pizza")
+                .bornOn(birthDay);
+
+        Assert.assertEquals("Fido", fido.getName());
+        Assert.assertEquals("Poodle", fido.getBreed());
+        Assert.assertEquals("pizza", fido.getFavouriteFood());
+        Assert.assertEquals(birthDay, fido.getDateOfBirth());
+        Assert.assertEquals("black", fido.getColour());
+    }
+
+    @Test
+    public void it_should_have_a_dog_using_builder_pattern_7_prototyping2() {
+        LocalDateTime birthDay = LocalDateTime.now();
+
+        DogByBuilder5 fido = serenitylabs.tutorials.vetclinic.domain.version2.DogBreeder
+                .aSmallDog()
+                .called("Spot")
+                .ofColour("black")
+                .withFavouriteFood("pizza")
+                .bornOn(birthDay);
+
+        Assert.assertEquals("Spot", fido.getName());
         Assert.assertEquals("Poodle", fido.getBreed());
         Assert.assertEquals("pizza", fido.getFavouriteFood());
         Assert.assertEquals(birthDay, fido.getDateOfBirth());

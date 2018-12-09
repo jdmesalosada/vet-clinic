@@ -9,11 +9,6 @@ public class DogByBuilder5 {
     private final String favouriteFood;
     private final String colour;
 
-    public DogByBuilder5(String name, String breed, LocalDateTime dateOfBirth) {
-        //We call the above constructor
-        this(name, breed, dateOfBirth, null, null);
-    }
-
     public DogByBuilder5(String name, String breed, LocalDateTime dateOfBirth, String favouriteFood, String colour) {
         this.name = name;
         this.breed = breed;
